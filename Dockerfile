@@ -1,0 +1,26 @@
+FROM cypress/browsers:chrome63-ff57
+
+MAINTAINER Harrison Powers, harrisonpowers@gmail.com
+
+RUN npm i -g cypress pm2
+RUN firefox --version
+
+# Deps for certificate
+RUN apt-get update && apt-get install -qq -y curl python-pip libpython-dev libnss3-tools \
+  && curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py \
+  && pip install -q awscli --upgrade
+
+ADD . /root/
+
+WORKDIR /root
+
+# proxy-cert dep
+RUN cd proxy-cert && npm i
+
+CMD bash proxy-cert/sync_cert.sh \
+  && export CYPRESS_baseUrl=http://localhost:8000 \
+  && pm2 start proxy-cert/index.js --name proxy-cert \
+  && sleep 5 \
+  && curl $CYPRESS_baseUrl \
+  && cypress run --browser chrome \
+  && cypress run --browser firefox
