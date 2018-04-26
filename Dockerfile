@@ -22,5 +22,4 @@ CMD bash proxy-cert/sync_cert.sh \
   && pm2 start proxy-cert/index.js --name proxy-cert \
   && sleep 5 \
   && curl $CYPRESS_baseUrl \
-  && cypress run --browser chrome \
-  && cypress run --browser firefox
+  && cypress run --browser chrome
