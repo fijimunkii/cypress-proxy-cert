@@ -19,7 +19,7 @@ RUN cd proxy-cert && npm i
 
 CMD bash proxy-cert/sync_cert.sh \
   && export CYPRESS_baseUrl=http://localhost:8000 \
-  && pm2 start proxy-cert/index.js --name proxy-cert \
+  && pm2 start proxy-cert/index.js --name proxy-cert > /dev/null \
   && sleep 5 \
-  && curl $CYPRESS_baseUrl \
+  && curl $CYPRESS_baseUrl > /dev/null \
   && cypress run --browser chrome
