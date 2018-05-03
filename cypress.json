@@ -2,7 +2,7 @@
   "projectId": "bfr3fe",
   "defaultCommandTimeout": 20000,
   "chromeWebSecurity": false,
-  "viewportHeight": 660,
+  "viewportHeight": 2400,
   "viewportWidth": 1200,
   "env": {}
 }
