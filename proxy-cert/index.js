@@ -26,3 +26,4 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
 proxy.listen(8000);
 
 console.log('proxy-cert listening on port 8000');
+process.send('ready');
