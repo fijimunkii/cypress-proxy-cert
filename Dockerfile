@@ -1,4 +1,4 @@
-FROM cypress/browsers:chrome63-ff57
+FROM cypress/browsers:chrome65-ff57
 
 MAINTAINER Harrison Powers, harrisonpowers@gmail.com
 
