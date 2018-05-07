@@ -26,4 +26,4 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
 proxy.listen(8000);
 
 console.log('proxy-cert listening on port 8000');
-process.send('ready');
+process.send('ready'); // signal ready for `pm2 start index.js --wait-ready`
