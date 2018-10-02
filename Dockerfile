@@ -2,7 +2,7 @@ FROM cypress/browsers:chrome65-ff57
 
 MAINTAINER Harrison Powers, harrisonpowers@gmail.com
 
-RUN npm i -g cypress pm2
+RUN npm i -g cypress@3.0.1 pm2
 RUN firefox --version
 
 # Deps for certificate
